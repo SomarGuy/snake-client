@@ -8,7 +8,7 @@ const connect = function () {
 
   conn.on('connect', () => {
     console.log("Successfully connected to game server.");
-    conn.write("Name: Dior");
+    conn.write("Name: Dio");
   });
 
 conn.on("data", (data) => {console.log(data)})
