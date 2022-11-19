@@ -1,8 +1,17 @@
-const setupInput = function () {
+const { MOVEMENT_KEYS } = require("./constants");
+
+let connection;
+
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
+  stdin.on("data", (key) => {
+    connection.write(handleUserInput(key));
+  });
+
   return stdin;
 };
 
